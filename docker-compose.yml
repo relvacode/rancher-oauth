@@ -1,0 +1,17 @@
+version: '2'
+services:
+  oauth:
+    image: a5huynh/oauth2_proxy
+    stdin_open: false
+    volumes:
+    - ${OAUTH_CONFIG}:/config:ro
+    tty: true
+    command:
+    - -upstream=http://${UPSTREAM_HOST}:${UPSTREAM_PORT}
+    - -config=/config/oauth2_proxy.cfg
+    labels:
+      io.rancher.container.start_once: 'true'
+      traefik.alias.fqdn: ${OAUTH_FQDN}
+      traefik.domain: ${OAUTH_DOMAIN}
+      traefik.enable: 'true'
+      io.rancher.container.pull_image: always
