@@ -11,3 +11,5 @@ python up.py -s mystack -u myapplication.mystack -p 8080 www.example.com
 ```
 
 Use an environment file to define `OAUTH_DOMAIN` and `OAUTH_CONFIG` for the Traefik proxy domain and configuration file directory respectively. The configuration directory should contain the file `oauth2_proxy.cfg`.
+
+This repository also contains a Google inspired login landing page for using a Google account backend.
